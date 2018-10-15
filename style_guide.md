@@ -38,7 +38,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
 * <b><code>assert</code></b> liberally – use `assert` macro to its fullest.
   Check all your conditions and assumptions
   ```cpp
-  inline Value *getOperand(unsigned i) {
+  inline Value* getOperand(unsigned i) {
       assert(i < operands_.size() && "getOperand() out of range!");
       return operands_[i];
   }
@@ -60,7 +60,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   iterator-based loop, pay close attention to whether `end()` is re-evaluted
   on each loop iteration. One common mistake is to write a loop in this style:
   ```cpp
-  BasicBlock *bb = // ...
+  BasicBlock* bb = // ...
   for (auto i = bb->begin(); i != bb->end(); ++i)
       // ... use i ...
   ```
@@ -69,7 +69,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   loops to be written so that they evaluate it once before the loop starts. A
   convenient way to do this is like so:
   ```cpp
-  BasicBlock *bb = ...
+  BasicBlock* bb = ...
       for (auto i = bb->begin(), e = bb->end(); i != e; ++i)
           // ... use i ...
   ```
@@ -272,15 +272,12 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
            - ira_deduction
            - student_loan_interest;
   ```
-* **pointers** and **references** – declare or use as function parameters with
-  dereference operator or address operator attached to the identifier except
-  for pointers to array or functions returning pointer, where these operators
-  have less precedence then the other operator attached to the identifier. Use
-  spaces between type and `*` or `&`.
+* **pointers** and **references** – reference (`&`) or address (`*`) operator
+  should be attached to the type.
   ```cpp
-  int *i;
-  int * i[5];
-  const int & f(const int &i);
+  int* i;
+  int* i[5];
+  const int& f(const int& i);
   ```
 * **variable initialization** – attach directly to variable using parentheses
   initialization `()` or list initialization `{}`
@@ -325,7 +322,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
 * **templates** and **type casts** – use no spaces between `<>()`
   ```cpp
   std::vector<string> x;
-  y = static_cast<char *>(x);
+  y = static_cast<char*>(x);
   ```
 * **templates** declaration – do not use space between template and `<`, place
   identifier to a new line. Use `typename` keyword instead of `class` keyword.
@@ -339,7 +336,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   be used.
 * use early exits and `continue` to simplify code
   ```cpp
-  Value * do_something(Instruction *i) {
+  Value* do_something(Instruction* i) {
       // We conservatively avoid transforming instructions with multiple uses
       // because goats like cheese.
       if (!i->hasOneUse())
@@ -354,12 +351,12 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   ```
   or
   ```cpp
-  for (Instruction &i : bb) {
-      auto *bo = dynamic_cast<BinaryOperator>(&i);
+  for (Instruction& i : bb) {
+      auto* bo = dynamic_cast<BinaryOperator>(&i);
       if (!bo) continue;
 
-      Value *lhs = bo->getOperand(0);
-      Value *rhs = bo->getOperand(1);
+      Value* lhs = bo->getOperand(0);
+      Value* rhs = bo->getOperand(1);
       if (lhs == rhs) continue;
 
       // …
@@ -385,7 +382,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   to this:
   ```cpp
   /// \returns true if the specified list has an element that is a foo.
-  static bool contains_foo(const std::vector<Bar*> &list) {
+  static bool contains_foo(const std::vector<Bar*>& list) {
       for (unsigned i = 0, e = List.size(); i != e; ++i) {
           if (list[i]->isFoo()) return true;
       }
