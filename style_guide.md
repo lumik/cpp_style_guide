@@ -29,7 +29,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   not postfix.
 * use <b><code>const</code></b> and <b><code>constexpr</code></b> whenever it’s
   possible but don’t overuse constexpr (for example in functions, which may be
-	in future downgraded to not constexpr).
+  in future downgraded to not constexpr).
 * **integer types** – from C++ integer types use only `int`, other use from
   `<cstdint>` or `Qt`.
 * do not use unsigned types (e. g. `std::size_t`) for indices, there is a risk
@@ -52,9 +52,9 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   sizes and increasing link times.
 * don’t use <b><code>default</code></b> labels in fully covered switches over
   enumerations – The `-Wswitch` flag warns if a switch, without a default
-	label, over an enumeration does not cover every enumeration value and it
-	won’t fire if you use default and add new value to enumeration which you
-	forget to cover.
+  label, over an enumeration does not cover every enumeration value and it
+  won’t fire if you use default and add new value to enumeration which you
+  forget to cover.
 * don’t evaluate `end()` every time through a loop – In cases where range-based
   for loops can’t be used and it is necessary to write an explicit
   iterator-based loop, pay close attention to whether `end()` is re-evaluted
@@ -97,9 +97,9 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   understand what it does.
 * avoid <b><code>std::endl</code></b> – The `std::endl` modifier, when used
   with iostreams outputs a newline to the output stream specified. In addition
-	to doing this, however, it also flushes the output stream. Use `'\``n'`
-	literal instead. It can be used only when you realy want to flush output
-	stream.
+  to doing this, however, it also flushes the output stream. Use
+  <code>'\​n'</code> literal instead. It can be used only when you realy want
+  to flush output stream.
 * **anonymous namespaces** – Use `static` when possible instead of anonymous
   namespace because it is localy more readable. While `static` is available in
   C++, anonymous namespaces are more general: they can make entire classes
@@ -116,16 +116,16 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
 * **type** names – CamelCase with no underscores, i.e. type names should start
   with a capital letter and have a capital letter for each new word. It applies
   to names of all custom types as classes, structs, type aliases, enums, and
-  type template	parameters.
+  type template parameters.
 * **variable** names – all lowercase with underscore between words, a class
   private data members (not methods) should have trailing underscore, struct
   data members are withou trailing underscore.
 * **constant** names – leading k + CamelCase – this applies especially for
   static storage duration.
 * **function** names:
-  * class methods - mixedCase (CamelCase with leading lowercase) it also
+  * class methods – mixedCase (CamelCase with leading lowercase) it also
     applies for acronyms.
-  * other functions - all lower case as variables.
+  * other functions – all lower case as variables.
 * **getters** and **setters** – as variables.
 * **namespace** names – all lowercase with underscores between words.
 * **macro** names – capitals with underscores between names MY_MACRO, other
@@ -138,7 +138,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
 * **template parameter** names – CamelCase with leading `T` for type or
   template arguments and with leading `t` for non-type arguments.
 
-    
+
 ## Formating conventions
 
 * **comments**
@@ -162,10 +162,10 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
 * terminate **namespace** with comment with the namespace name
   ```cpp
   namespace my_namespace {
-  
+
   int my_function();
-  
-  
+
+
   class MyClass
   {
       MyClass();
@@ -243,7 +243,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   ```cpp
   for (int i = 0; i < n; ++i) do_something();  // one line
   for (int i = 0; i < n; ++i)
-      do_something();                          // two lines  
+      do_something();                          // two lines
   ```
   * place block openning parentheses at the same line as control structure
     divided by one space from the structure opening
@@ -349,7 +349,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
       if (!do_other_thing(i))
           return 0;
 
-      // ... some long code ....
+      // … some long code …
   }
   ```
   or
@@ -362,7 +362,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
       Value *rhs = bo->getOperand(1);
       if (lhs == rhs) continue;
 
-      // ...
+      // …
   }
   ```
 * don’t use `else` after `return` – see example above about early exits
@@ -379,7 +379,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   }
 
   if (found_foo) {
-      // ...
+      // …
   }
   ```
   to this:
@@ -391,13 +391,13 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
       }
       return false;
   }
-  // ...
+  // …
 
   if (contains_foo(bar_list)) {
-      // ...
+      // …
   }
   ```
-* don’t use `inline` when defining a function in a class definition	– A member
+* don’t use `inline` when defining a function in a class definition – A member
   function defined in a class definition is implicitly inline.
 * use Qt’s parent system and raw pointers as ownership management for widgets
   and things that can be inserted into Qt’s layouts (Qt’s parenting system
@@ -415,7 +415,7 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
   from the other scoped enumeration)
 * place also `\``headerfile ""` macro after `\``brief` for the non-public
   classes (classes which are not in headers distributed with the library) to
-	change their include directive in the documentation from `<>` to `""`.
+  change their include directive in the documentation from `<>` to `""`.
 * use doxygen only for public class member documentation. Private stuff
   document only with comments. Document only the API and implementation
   consequences for the user, do not document the implementation details using
