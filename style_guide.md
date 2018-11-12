@@ -252,14 +252,14 @@ This is Lumik’s personal C++ style guide. This style guide is inspired by the
       do_something();                          // block
   }
   ```
-  * switch – use space before colon
+  * switch – do not use space before colon
   ```cpp
   switch (var) {
-      case 0 :
-      case 1 :
+      case 0:
+      case 1:
           do_something();
           break;
-      default :
+      default:
           assert(false);  // may never occur, use assert
   }
   ```
